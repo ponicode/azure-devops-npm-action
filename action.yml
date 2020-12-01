@@ -1,0 +1,46 @@
+name: "Azure DevOps NPM"
+description: Setup .npmrc file for Azure DevOps"
+branding:
+    icon: "align-justify"
+    color: "orange"
+inputs:
+    organisation:
+        description: "Your Azure organisation"
+        required: true
+    project:
+        description: "Your Azure project"
+        required: true
+    registry:
+        description: "Your Azure registry"
+        required: true
+    user:
+        description: "Your Azure user"
+        required: true
+    password:
+        description: "Your Azure password"
+        required: true
+    email:
+        description: "Your Azure email"
+        required: true
+    scope:
+        description: "Your package scope"
+        required: false
+runs:
+    using: "docker"
+    image: "Dockerfile"
+    args:
+        - ""--organisation"
+        - ${{ inputs.organisation }}
+        - ""--project"
+        - ${{ inputs.project }}
+        - ""--registry"
+        - ${{ inputs.registry }}
+        - ""--organisation"
+        - ${{ inputs.user }}
+        - ""--user"
+        - ${{ inputs.password }}
+        - ""--password"
+        - ${{ inputs.email }}
+        - ""--email"
+        - ${{ inputs.scope }}
+        - ""--scope"
