@@ -1,4 +1,5 @@
 import argparse
+import os
 
 def parse_args():
 	parser = argparse.ArgumentParser(description="Generate .npmrc file for Azure DevOps")
@@ -33,7 +34,8 @@ def generate_credentials(args):
 //{url}/:email={args.email}
 ; end auth token"""
 
-def write_file(path, content):
+def write_file(content):
+	path = os.path.join(os.getenv("GITHUB_WORKSPACE"), ".npmrc")
 	with open(path, 'w') as f:
 		f.write(content)
 
@@ -41,7 +43,7 @@ def main():
 	args = parse_args()
 	content = generate_registry(args)
 	content += generate_credentials(args)
-	write_file("~/.npmrc", content)
+	write_file(content)
 
 if __name__ == "__main__":
     main()
