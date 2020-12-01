@@ -35,12 +35,11 @@ runs:
         - ${{ inputs.project }}
         - "--registry"
         - ${{ inputs.registry }}
-        - "--organisation"
-        - ${{ inputs.user }}
         - "--user"
-        - ${{ inputs.password }}
+        - ${{ inputs.user }}
         - "--password"
-        - ${{ inputs.email }}
+        - ${{ inputs.password }}
         - "--email"
-        - ${{ inputs.scope }}
+        - ${{ inputs.email }}
         - "--scope"
+        - ${{ inputs.scope }}
