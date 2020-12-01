@@ -20,10 +20,10 @@ This github action generates a .npmrc file for Azure DevOps
 | -------------- | ------------------------- | -------- | 
 | `organisation` | Your Azure organisation   | true     |
 | `project`      | Your Azure project        | true     |
-| `registry`     | Your Azure registry       | false    | 
-| `user`         | Your Azure user           | false    | 
-| `password `    | Your Azure password       | false    | 
-| `email`        | Your Azure email          | false    | 
+| `registry`     | Your Azure registry       | true     | 
+| `user`         | Your Azure user           | true     | 
+| `password `    | Your Azure password       | true     | 
+| `email`        | Your Azure email          | true     | 
 | `scope`        | Your Azure scope          | false    | 
 
 We would love to hear your feedback! Tell us what you loved and what you want us to improve about this action at feedback@ponicode.com, or feel free to open a Github Issue.<br />
