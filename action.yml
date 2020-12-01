@@ -29,18 +29,18 @@ runs:
     using: "docker"
     image: "Dockerfile"
     args:
-        - ""--organisation"
+        - "--organisation"
         - ${{ inputs.organisation }}
-        - ""--project"
+        - "--project"
         - ${{ inputs.project }}
-        - ""--registry"
+        - "--registry"
         - ${{ inputs.registry }}
-        - ""--organisation"
+        - "--organisation"
         - ${{ inputs.user }}
-        - ""--user"
+        - "--user"
         - ${{ inputs.password }}
-        - ""--password"
+        - "--password"
         - ${{ inputs.email }}
-        - ""--email"
+        - "--email"
         - ${{ inputs.scope }}
-        - ""--scope"
+        - "--scope"
