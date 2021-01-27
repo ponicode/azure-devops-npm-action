@@ -1,4 +1,5 @@
 import argparse
+import base64
 import os
 
 def parse_args():
@@ -8,6 +9,7 @@ def parse_args():
 	parser.add_argument("--registry", dest="registry", required=True, help="Your Azure registry")
 	parser.add_argument("--user", dest="user", required=True, help="Your Azure user")
 	parser.add_argument("--password", dest="password", required=True, help="Your Azure password")
+	parser.add_argument("--encode_password", dest="encode_password", default=False, help="Encode the given password to base64")
 	parser.add_argument("--email", dest="email", required=True, help="Your Azure email")
 	parser.add_argument("--scope", dest="scope", required=False, help="Your package scope")
 	return parser.parse_args()
@@ -23,14 +25,20 @@ def generate_registry(args):
 always-auth=true
 """
 
+def encode_password(args):
+	if args.encode_password:
+		return base64.b64encode(args.password.encode('utf-8')).decode("utf-8")
+	return args.password
+
 def generate_credentials(args):
 	url = generate_url(args)
+	password = encode_password(args)
 	return f"""; begin auth token
 //{url}/registry/:username={args.user}
-//{url}/registry/:_password="{args.password}"
+//{url}/registry/:_password="{password}"
 //{url}/registry/:email={args.email}
 //{url}/:username={args.user}
-//{url}/:_password="{args.password}"
+//{url}/:_password="{password}"
 //{url}/:email={args.email}
 ; end auth token"""
 
