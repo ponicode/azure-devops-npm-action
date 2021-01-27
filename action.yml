@@ -25,6 +25,10 @@ inputs:
     scope:
         description: "Your package scope"
         required: false
+    encode_password:
+        description: Encode the given password to base64
+        required: false
+        default: "false"
 runs:
     using: "docker"
     image: "Dockerfile"
@@ -39,6 +43,8 @@ runs:
         - ${{ inputs.user }}
         - "--password"
         - ${{ inputs.password }}
+        - "--encode_password"
+        - ${{ inputs.encode_password }}
         - "--email"
         - ${{ inputs.email }}
         - "--scope"

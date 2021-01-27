@@ -64,15 +64,16 @@ That's it! Once this is done, the action will be triggered on every push to mast
 
 # Ponicode Action inputs
 
-| Name           | Description               | Required |
-| -------------- | ------------------------- | -------- | 
-| `organisation` | Your Azure organisation   | true     |
-| `project`      | Your Azure project        | true     |
-| `registry`     | Your Azure registry       | true     | 
-| `user`         | Your Azure user           | true     | 
-| `password `    | Your Azure password       | true     | 
-| `email`        | Your Azure email          | true     | 
-| `scope`        | Your Azure scope          | false    | 
+| Name              | Description                                          | Required |
+| ----------------- | ---------------------------------------------------- | -------- |
+| `organisation`    | Your Azure organisation                              | true     |
+| `project`         | Your Azure project                                   | true     |
+| `registry`        | Your Azure registry                                  | true     |
+| `user`            | Your Azure user                                      | true     |
+| `password `       | Your Azure password                                  | true     |
+| `email`           | Your Azure email                                     | true     |
+| `encode_password` | Encode the given password to base64 (default: false) | false    |
+| `scope`           | Your Azure scope                                     | false    |
 
 ## Contact us
 
