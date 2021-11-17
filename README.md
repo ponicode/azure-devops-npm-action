@@ -11,7 +11,7 @@ This github action generates a `.npmrc` file for Azure DevOps
     user: "unicorn"
     password: ${{ secrets.AZURE_TOKEN }}
     email: "unicorn@ponicode.com"
-    scope: "@ponicode"
+    scope: "ponicode"
 ```
 # How to setup (You must follow steps 1 and 2 to make the action work)
 ## **Step 1**: Create a yaml workflow file in your project
