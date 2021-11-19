@@ -15,7 +15,6 @@ def parse_args() -> argparse.Namespace:
 	return parser.parse_args()
 
 def generate_url(args: argparse.Namespace):
-	print(args.project)
 	if args.project is not None:
 		return f"pkgs.dev.azure.com/{args.organisation}/{args.project}/_packaging/{args.registry}/npm"
 
