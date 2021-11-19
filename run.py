@@ -46,7 +46,7 @@ def generate_credentials(args):
 ; end auth token"""
 
 def write_file(content):
-	path = os.path.join(os.environ["HOME"], ".npmrc")
+	path = os.path.join(os.environ["GITHUB_WORKSPACE"], ".npmrc")
 	with open(path, 'w') as f:
 		f.write(content)
 
