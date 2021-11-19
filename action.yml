@@ -9,7 +9,7 @@ inputs:
         required: true
     project:
         description: "Your Azure project"
-        required: true
+        required: false
     registry:
         description: "Your Azure registry"
         required: true

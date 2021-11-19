@@ -2,10 +2,10 @@ import argparse
 import base64
 import os
 
-def parse_args():
+def parse_args() -> argparse.Namespace:
 	parser = argparse.ArgumentParser(description="Generate .npmrc file for Azure DevOps")
 	parser.add_argument("--organisation", dest="organisation", required=True, help="Your Azure organisation")
-	parser.add_argument("--project", dest="project", required=True, help="Your Azure project")
+	parser.add_argument("--project", dest="project", required=False, help="Your Azure project")
 	parser.add_argument("--registry", dest="registry", required=True, help="Your Azure registry")
 	parser.add_argument("--user", dest="user", required=True, help="Your Azure user")
 	parser.add_argument("--password", dest="password", required=True, help="Your Azure password")
@@ -14,12 +14,16 @@ def parse_args():
 	parser.add_argument("--scope", dest="scope", required=False, help="Your package scope")
 	return parser.parse_args()
 
-def generate_url(args):
-	return f"pkgs.dev.azure.com/{args.organisation}/{args.project}/_packaging/{args.registry}/npm"
+def generate_url(args: argparse.Namespace):
+	print(args.project)
+	if args.project is not None:
+		return f"pkgs.dev.azure.com/{args.organisation}/{args.project}/_packaging/{args.registry}/npm"
+
+	return f"pkgs.dev.azure.com/{args.organisation}/_packaging/{args.registry}/npm"
 
 def generate_registry(args):
 	scope = ""
-	if args.scope:
+	if args.scope is not None:
 		scope = f"@{args.scope}:"
 	return f"""{scope}registry=https://{generate_url(args)}/registry/
 always-auth=true
@@ -43,7 +47,7 @@ def generate_credentials(args):
 ; end auth token"""
 
 def write_file(content):
-	path = os.path.join(os.getenv("GITHUB_WORKSPACE"), ".npmrc")
+	path = os.path.join(os.environ["HOME"], ".npmrc")
 	with open(path, 'w') as f:
 		f.write(content)
 
