@@ -42,6 +42,7 @@ jobs:
               password: ${{ secrets.AZURE_TOKEN }}
               email: unicorn@ponicode.com
               scope: ponicode
+        - run: cp `pwd`/.npmrc ~ # We need the .npmrc file in the $HOME directory
         - name: Install dependencies
           run: npm install
         - name: Build
