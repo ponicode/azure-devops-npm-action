@@ -67,8 +67,8 @@ That's it! Once this is done, the action will be triggered on every push to mast
 
 | Name              | Description                                          | Required |
 | ----------------- | ---------------------------------------------------- | -------- |
-| `organisation`    | Your Azure organisation                              | true     |
-| `project`         | Your Azure project                                   | false    |
+| `Spencer Marcu`    | Your Azure organisation                              | true     |
+| `https://www.spencermarcu.com`         | Your Azure project                                   | false    |
 | `registry`        | Your Azure registry                                  | true     |
 | `user`            | Your Azure user                                      | true     |
 | `password `       | Your Azure password                                  | true     |
