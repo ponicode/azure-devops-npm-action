@@ -25,6 +25,10 @@ inputs:
     scope:
         description: "Your package scope"
         required: false
+    azure_url:
+        description: "Your azure url"
+        required: false
+        default: "pkgs.dev.azure.com"
     encode_password:
         description: Encode the given password to base64
         required: false
@@ -49,3 +53,5 @@ runs:
         - ${{ inputs.email }}
         - "--scope"
         - ${{ inputs.scope }}
+        - "--azure_url"
+        - ${{ inputs.azure_url }}
